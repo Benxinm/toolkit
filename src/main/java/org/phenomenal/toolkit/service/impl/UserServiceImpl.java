@@ -5,6 +5,7 @@ import org.phenomenal.toolkit.entities.net.Base;
 import org.phenomenal.toolkit.entities.User;
 import org.phenomenal.toolkit.entities.net.UserLoginResponse;
 import org.phenomenal.toolkit.service.UserService;
+import org.phenomenal.toolkit.utils.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,8 @@ public class UserServiceImpl implements UserService {
         if (user.getPassword().equals(password)){
             resp.setStatusCode(200);
             resp.setStatusMsg("Success");
-            resp.setData(new UserLoginResponse("123456789"));
+            String token = Auth.genToken(user.getId().toString());
+            resp.setData(new UserLoginResponse(token));
         }else {
             resp.setStatusCode(401);
             resp.setStatusMsg("Wrong password");
