@@ -6,6 +6,6 @@ spring:
     url: jdbc:mysql://localhost:3306/toolkit?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
 oss:
   endpoint: oss-cn-hangzhou.aliyuncs.com
-  accessKey: LTAI5tEJMyW8bRA4jgSmZvPi
-  accessSecret: 7LJoIutd0RHnd8HutnHWwrtmkUubDZ
+  accessKey: LTAI5tEJMyW8b*******
+  accessSecret: 7LJoIutd0RHnd8H*******
   bucketName: phenomenal-toolkit
