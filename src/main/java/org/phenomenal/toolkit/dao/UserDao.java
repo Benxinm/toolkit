@@ -24,4 +24,9 @@ public class UserDao {
         int res = userMapper.insert(user);
         return res;
     }
+    public int updateAvatar(long uid,String url){
+        int res = userMapper.updateAvatar(uid,url);
+        return res;
+    }
+
 }
