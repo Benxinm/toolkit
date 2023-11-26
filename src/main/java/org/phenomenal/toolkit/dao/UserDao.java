@@ -1,6 +1,5 @@
 package org.phenomenal.toolkit.dao;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.phenomenal.toolkit.entities.User;
 import org.phenomenal.toolkit.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,10 @@ public class UserDao {
 
     public int insertUser(User user){
         int res = userMapper.insert(user);
+        return res;
+    }
+    public int updateAvatar(long uid,String url){
+        int res = userMapper.updateAvatar(uid,url);
         return res;
     }
 }

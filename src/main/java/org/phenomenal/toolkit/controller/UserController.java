@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @Slf4j
@@ -29,6 +30,12 @@ public class UserController {
     public Base register(@RequestParam("username") String username,
                          @RequestParam("password") String password){
         Base resp = userService.register(username, password);
+        return resp;
+    }
+    @PostMapping("/upload_avatar")
+    public Base uploadAvatar(@RequestParam("token") String token,
+                             @RequestParam("avatar")MultipartFile avatar){
+        Base resp = userService.uploadAvatar(token,avatar);
         return resp;
     }
 }
