@@ -9,3 +9,4 @@ CREATE TABLE `user`
         PRIMARY KEY (`id`),
     INDEX      idx_username (`username`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+

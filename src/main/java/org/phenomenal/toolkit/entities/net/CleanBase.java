@@ -5,8 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Base<T> extends CleanBase{
+public class CleanBase {
     Integer statusCode;
     String  statusMsg;
-    T data;
 }
