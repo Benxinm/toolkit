@@ -3,6 +3,7 @@ package org.phenomenal.toolkit.service.impl;
 import org.phenomenal.toolkit.dao.UserDao;
 import org.phenomenal.toolkit.entities.net.Base;
 import org.phenomenal.toolkit.entities.User;
+import org.phenomenal.toolkit.entities.net.CleanBase;
 import org.phenomenal.toolkit.entities.net.UserLoginResponse;
 import org.phenomenal.toolkit.oss.UserOss;
 import org.phenomenal.toolkit.service.UserService;
@@ -49,8 +50,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Base register(String username, String password) {
-        Base resp = new Base();
+    public CleanBase register(String username, String password) {
+        CleanBase resp = new CleanBase();
         int res = userDao.insertUser(new User(username, password));
         if (res == 1){
             resp.setStatusCode(200);
@@ -63,8 +64,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Base uploadAvatar(String token, MultipartFile avatar) {
-        Base resp = new Base();
+    public CleanBase uploadAvatar(String token, MultipartFile avatar) {
+        CleanBase resp = new CleanBase();
         String uid = Auth.verifyToken(token);
         if (!avatar.isEmpty()){
             try {

@@ -2,6 +2,7 @@ package org.phenomenal.toolkit.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.phenomenal.toolkit.entities.net.Base;
+import org.phenomenal.toolkit.entities.net.CleanBase;
 import org.phenomenal.toolkit.entities.net.UserLoginResponse;
 import org.phenomenal.toolkit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +28,15 @@ public class UserController {
         return resp;
     }
     @PostMapping("/register")
-    public Base register(@RequestParam("username") String username,
-                         @RequestParam("password") String password){
-        Base resp = userService.register(username, password);
+    public CleanBase register(@RequestParam("username") String username,
+                              @RequestParam("password") String password){
+        CleanBase resp = userService.register(username, password);
         return resp;
     }
     @PostMapping("/upload_avatar")
-    public Base uploadAvatar(@RequestParam("token") String token,
+    public CleanBase uploadAvatar(@RequestParam("token") String token,
                              @RequestParam("avatar") MultipartFile avatar){
-        Base resp = userService.uploadAvatar(token,avatar);
+        CleanBase resp = userService.uploadAvatar(token,avatar);
         return resp;
     }
 }
