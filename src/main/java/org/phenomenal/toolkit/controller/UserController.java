@@ -3,9 +3,11 @@ package org.phenomenal.toolkit.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.phenomenal.toolkit.entities.net.Base;
 import org.phenomenal.toolkit.entities.net.CleanBase;
+import org.phenomenal.toolkit.entities.net.HistoryResponse;
 import org.phenomenal.toolkit.entities.net.UserLoginResponse;
 import org.phenomenal.toolkit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +39,19 @@ public class UserController {
     public CleanBase uploadAvatar(@RequestParam("token") String token,
                              @RequestParam("avatar") MultipartFile avatar){
         CleanBase resp = userService.uploadAvatar(token,avatar);
+        return resp;
+    }
+    @PostMapping("/put_history")
+    public CleanBase putHistory(@RequestParam("token") String token,
+                                @RequestParam("type") int type,
+                                @RequestParam("content") String content){
+        CleanBase resp = userService.putHistory(token, type, content);
+        return resp;
+    }
+    @GetMapping("get_history")
+    public Base<HistoryResponse> getHistory(@RequestParam("uid") long uid,
+                                            @RequestParam("token") String token){
+        Base<HistoryResponse> resp = userService.getHistory(uid,token);
         return resp;
     }
 }
