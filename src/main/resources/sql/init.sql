@@ -1,4 +1,4 @@
-CREATE TABLE `user`
+CREATE TABLE toolkit.`user`
 (
     id         INT AUTO_INCREMENT NOT NULL,
     username   VARCHAR(32)                            NOT NULL unique,

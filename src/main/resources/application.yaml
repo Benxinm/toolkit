@@ -3,10 +3,10 @@ spring:
     username: toolkit
     password: toolkit
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/toolkit?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/toolkit?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 
 oss:
   endpoint: oss-cn-hangzhou.aliyuncs.com
-  accessKey: LTAI5tEJMyW8b*******
-  accessSecret: 7LJoIutd0RHnd8H*******
+  accessKey: LTAI5tEJMyW
+  accessSecret: 7LJoIutd
   bucketName: phenomenal-toolkit

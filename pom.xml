@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.phenomenal</groupId>
     <artifactId>toolkit</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>toolkit</name>
     <description>toolkit</description>
     <properties>
