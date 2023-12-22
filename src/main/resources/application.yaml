@@ -1,7 +1,7 @@
 spring:
   datasource:
-    username: root
-    password: chsqc578480
+    username: toolkit
+    password: toolkit
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/toolkit?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
 

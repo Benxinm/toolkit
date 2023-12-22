@@ -12,6 +12,6 @@ public interface UserService {
     CleanBase register(String username, String password);
     CleanBase uploadAvatar(String token, MultipartFile avatar);
     CleanBase putHistory(String token,int code,String content);
-    Base<HistoryResponse> getHistory(String token);
+    Base<HistoryResponse> getHistory(long uid, String token);
 }
 

@@ -49,8 +49,9 @@ public class UserController {
         return resp;
     }
     @GetMapping("get_history")
-    public Base<HistoryResponse> getHistory(@RequestParam("token") String token){
-        Base<HistoryResponse> resp = userService.getHistory(token);
+    public Base<HistoryResponse> getHistory(@RequestParam("uid") long uid,
+                                            @RequestParam("token") String token){
+        Base<HistoryResponse> resp = userService.getHistory(uid,token);
         return resp;
     }
 }

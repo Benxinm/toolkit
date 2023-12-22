@@ -138,7 +138,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Base<HistoryResponse> getHistory(String token) {
+    public Base<HistoryResponse> getHistory(long userId,String token) {
         Base<HistoryResponse> resp = new Base<>();
         String uidString = Auth.verifyToken(token);
         if (uidString == null){
@@ -147,11 +147,13 @@ public class UserServiceImpl implements UserService {
             return resp;
         }
         long uid = Long.parseLong(uidString);
-        List<History> histories = historyDao.getUserHistory(uid);
-        HistoryResponse historyResponse = new HistoryResponse(histories);
-        resp.setData(historyResponse);
-        resp.setStatusCode(200);
-        resp.setStatusMsg("Success");
+        if (userId == uid){
+            List<History> histories = historyDao.getUserHistory(uid);
+            HistoryResponse historyResponse = new HistoryResponse(histories);
+            resp.setData(historyResponse);
+            resp.setStatusCode(200);
+            resp.setStatusMsg("Success");
+        }
         return resp;
     }
 }
