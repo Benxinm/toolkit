@@ -9,13 +9,12 @@ import java.util.Date;
 
 public class Auth {
     private static final String TOKEN_SECRET = "privateKey";
-    private static final long EXPIRE_TIME = 30 * 60 * 1000;
     private static final Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECRET);
     public static String genToken(String userId) {
         try {
             return JWT.create()
                     .withClaim("userId", userId)
-                    .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRE_TIME))
+                    .withExpiresAt(new Date(System.currentTimeMillis() + Constant.EXPIRE_TIME))
                     .sign(algorithm);
         }catch (Exception e){
             e.printStackTrace();
