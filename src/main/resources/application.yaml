@@ -4,9 +4,18 @@ spring:
     password: toolkit
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/toolkit?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: toolkit
+      database: 0
+      lettuce:
+        pool:
+          max-active: 100
+          max-idle: 100
 oss:
   endpoint: oss-cn-hangzhou.aliyuncs.com
-  accessKey: LTAI5tEJMyW
+  accessKey: LTAI5tE
   accessSecret: 7LJoIutd
   bucketName: phenomenal-toolkit

@@ -1,18 +1,14 @@
 package org.phenomenal.toolkit.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.phenomenal.toolkit.entities.net.Base;
-import org.phenomenal.toolkit.entities.net.CleanBase;
-import org.phenomenal.toolkit.entities.net.HistoryResponse;
-import org.phenomenal.toolkit.entities.net.UserLoginResponse;
+import org.phenomenal.toolkit.entities.net.*;
 import org.phenomenal.toolkit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+@CrossOrigin
 @RestController
 @Slf4j
 public class UserController {
@@ -36,9 +32,9 @@ public class UserController {
         return resp;
     }
     @PostMapping("/upload_avatar")
-    public CleanBase uploadAvatar(@RequestParam("token") String token,
-                             @RequestParam("avatar") MultipartFile avatar){
-        CleanBase resp = userService.uploadAvatar(token,avatar);
+    public Base<AvatarResponse> uploadAvatar(@RequestParam("token") String token,
+                                             @RequestParam("avatar") MultipartFile avatar){
+        Base<AvatarResponse> resp = userService.uploadAvatar(token,avatar);
         return resp;
     }
     @PostMapping("/put_history")
